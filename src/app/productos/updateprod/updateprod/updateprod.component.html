@@ -1,0 +1,64 @@
+<h2 class="fw-bold text-center py-6">Update Producto</h2>
+<h4 class="fw-bold text-center py-6">Id Producto : {{producto.idproducto}}</h4>
+  
+        <br>
+<form action="#">
+  <div class="container">
+    <div class="form-row">      
+      <div class="form-group col-md-2">
+
+        
+        <label for="">Id Categoria</label>        
+
+      <select name="idcategoria"  [(ngModel)]="producto.idcategoria" class="form-control ps-2" aria-label="Default select example">
+        <option  [ngValue]="producto.idcategoria" selected>{{producto.idcategoria.nombrecategoria}}</option>
+        <option *ngFor="let categoria of categorias" [ngValue]="categoria">{{categoria.nombrecategoria}}</option>        
+    </select>     
+
+
+      </div>
+      <div class="form-group col-md-2">
+        <label for="">Id Marca</label>
+        <select name="idmarca"  [(ngModel)]="producto.idmarca" class="form-control ps-2" aria-label="Default select example">
+          <option  [ngValue]="producto.idmarca" selected>{{producto.idmarca.nombmarca}}</option>
+          <option *ngFor="let marca of marcas" [ngValue]="marca">{{marca.nombmarca}}</option>
+          
+      </select>
+      </div>
+      <div class="form-group col-md-8">
+        <label for="inputAddress">Nombre Producto</label>
+        <input type="text" class="form-control" name="nombproducto" id="nombproducto" placeholder="Ingrese el nombre de producto" [(ngModel)]="producto.nombproducto"> 
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-8">
+        <label for="inputAddress">Descripcion</label>
+        <input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="Ingrese el nombre de producto" [(ngModel)]="producto.descripcion">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputAddress2">Precio</label>
+        <input type="number" class="form-control" name="precio" id="precio" placeholder="Ingrese el precio" [(ngModel)]="producto.precio">
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group col-md-2">
+        <label for="inputCity">Stock</label>
+        <input type="text" class="form-control" name="stock" id="stock" [(ngModel)]="producto.stock">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputState">Estado</label>
+        <select name="estado"  [(ngModel)]="producto.estado" class="form-control ps-2" aria-label="Default select example">
+          <option value="undefined" selected>--Seleccione--</option>
+          <option value ="Disponible">Disponible</option>
+          <option value="Agotado">No Disponible</option>
+      </select>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputZip">Imagen</label>
+        <input type="text" class="form-control" name="imagen" id="imagen" placeholder="Ingrese la Url de la imagen" [(ngModel)]="producto.imagen">
+      </div>
+    </div>    
+    <button type="submit" (click)="actualizarProducto(producto)" class="btn btn-primary">Guardar</button>
+  </div>
+  </form>

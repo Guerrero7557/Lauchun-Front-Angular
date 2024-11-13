@@ -1,0 +1,52 @@
+
+<div class="container w-75 bg-white mt-5 rounded shadow" style="margin-top: 110px;">
+    <div class="row align-items-stretch" >
+        
+        <div class="col p-5 rounded-end">
+            <br>
+                <br>
+                
+            
+            
+            <h2 class="fw-bold text-center py-6">New Categoria</h2>
+            <br>
+           
+
+            <form action="#">
+               
+                <div class="mb-4">
+                    <label for="" class="form-label fw-bolder">Categoria</label><br>
+                    <input type="text" class="form-control" name="categoria" id="jo " [(ngModel)]="categoria.nombrecategoria" >
+                </div>
+                <div class="mb-4">
+                    <label for="" class="form-label fw-bolder">Estado</label><br>
+                    <select name="estado"  [(ngModel)]="categoria.estado" class="form-control ps-2" aria-label="Default select example">
+                        <option [ngValue]="undefined" selected>--Seleccione--</option>
+                        <option [ngValue]="1">true</option>
+                        <option [ngValue]="0">false</option>
+                    </select>
+                    
+                </div>
+             
+                
+                <div class="d-grid  ">
+                    <button (click)="GuardarCategoria(categoria)" type="submit" class="btn btn-primary fw-bold text-light">Registrar</button>
+                </div>
+                
+                
+            </form>
+            
+            
+            
+        </div>
+        <div  class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded" >
+            <br>
+            <br>
+            <br>
+            
+            <img style="width: 70%;" src="../../../assets/img/imagenescomp/categorias.png" alt="">
+        </div>
+       
+    </div>
+</div>
+

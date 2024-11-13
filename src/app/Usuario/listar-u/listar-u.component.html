@@ -1,0 +1,49 @@
+<div class="card border-primary mb-3 " style="margin-top: 90px;" id="contenedor">
+    
+    <div class="card-body text-primary text-center">
+      <h5 class="card-title">Listado de Usuarios</h5>
+     
+      <br>
+      <button  (click)="add()"  class="btn btn-success">Agregar Usuario</button>
+      
+      <br>
+      <br>
+      <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Rol</th>
+                <th>nombre</th>
+                <th>apellidos</th>
+                <th>sexo</th>
+                <th>Direccion</th>
+                <th>Email</th>
+                <th>DNI</th> 
+                <th>Usuario</th>                
+                <th>Estado</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let  usuario of usuarios">
+                <td>{{usuario.idusuario}}</td>
+                <td>{{usuario.idrol.nombrerol}}</td>
+                <td>{{usuario.nombre}}</td>
+                <td> {{usuario.apellidos}}</td>
+                <td>{{usuario.sexo}}</td>
+                <td>{{usuario.direccion}}</td>
+                <td>{{usuario.email}}</td>
+                <td>{{usuario.dni}}</td>
+                <td>{{usuario.usuario}}</td>
+                <td>{{usuario.estado}}</td>                
+                
+                <td><button  (click)="Editar(usuario)"  class="btn btn-success">Editar</button>
+                    <button  (click)="eliminarUsuario(usuario)" style="margin-left: 10px;" class="btn btn-danger ms-3">Eliminar</button></td>
+            </tr>
+          </tbody>
+      </table>
+
+    </div>
+  </div>
+
+

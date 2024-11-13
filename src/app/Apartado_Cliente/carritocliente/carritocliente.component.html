@@ -1,0 +1,222 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <title>Carrito | Compras - Lauchun</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    
+
+</head>
+
+<body class="bg-light mb-100%">
+
+    <div *ngIf="elementoscarrito.length >=1"  class="container">
+        <main>
+            <div class="py-5 text-center">
+
+                <h2>LAUCHUN - CARRITO DE COMPRAS</h2>
+                <p class="lead">Compramos contigo...</p>
+            </div>
+
+            <div>
+                <div class="row g-5">
+                    <div class="col-lg-9">
+                        <!-- TABLA -->
+                        <div class="card border-secondary mb-5">
+                            <table class="table table-hover table-bordered align-middle text-center mb-0">
+                                <thead class="bg-danger text-white">
+                                    <tr>
+                                        <th>NOMBRE DEL PRODUCTO</th>
+                                        <th>PRECIO</th>
+                                        <th>CANTIDAD</th>
+                                        <th>SUBTOTAL</th>
+                                        <th>ELIMINAR</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody style="vertical-align: middle;">
+                                    <!-- PRODUCTO 1 -->
+                                    <tr *ngFor="let  item of elementoscarrito">
+                                        <td class="text-start">
+                                            <div class="row w-100 align-items-center mr-0 ml-0">
+                                                <div class="col-lg-4">
+                                                    <div>
+                                                        <img src="{{item.idproducto.imagen}}"
+                                                            style="width: 100px; height: 100px;" alt="Imagen">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-lg-6">
+                                                    <p class="mt-0 mb-0">
+                                                        {{item.idproducto.nombproducto}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td style="vertical-align: middle;">S/{{item.idproducto.precio}}</td>
+
+                                        <td style="vertical-align: middle;">
+                                            <form action="/" method="post" class="w-100">
+                                                <input [defaultValue]="item.cantidad" [(ngModel)]="item.cantidad" (ngModelChange)="updateitem(item)" type="number" name="cantidad" style="width: 70%;" min="1" max="99" value="2" id="cantidad"/>
+                                            </form>
+                                        </td>
+
+                                        <td style="vertical-align: middle;">S/ {{item.montoprod}}</td>
+
+                                        <td (click)="eliminarItem(item)" style="vertical-align: middle;"><a type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-ban"></i></a></td>
+                                    </tr>
+                                    <!-- FIN PRODUCTO 1 -->
+                                    
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <!-- FIN TABLA -->
+                    </div>
+
+                    <!-- RESUMEN DE COMPRA -->
+                    <div class="col-lg-3">
+                        <h4 class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="text-secondary">DETALLES DE CARRITO</span>
+                            <span class="badge bg-danger rounded-pill text-danger">.</span>
+                        </h4>
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <div>
+                                    <h6 class="my-0">Productos totales</h6>
+                                    <small class="text-muted">-----------------------</small>
+                                </div>
+                                <span class="text-muted">{{numeroitems}}</span>
+                            </li>
+
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Sub Total</span>
+                                <span>S/{{total - total* 0.18 | number:'1.2-2'}}</span> 
+                            </li>
+
+                            <li class="list-group-item d-flex justify-content-between bg-light">
+                                <div class="text-success">
+                                    <h6 class="my-0">Descuento</h6>
+                                </div>
+                                <span class="text-success">S/.0</span>
+                            </li>
+
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>IGV (18%)</span>
+                                <span>S/{{total* 0.18 | number:'1.2-2'}}</span> 
+                            </li>
+
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Total (PEN)</span>
+                                <strong>S/{{total | number:'1.2-2'}}</strong>
+                            </li>
+                        </ul>
+
+                        
+                        <form class="card p-2">
+                            <div class="justify-content-center input-group">
+                                <button (click)="AgregarVenta(venta)"  type="submit" class="w-100 btn btn-success"><strong>Enviar constancia</strong></button>
+                            </div>
+                        </form>
+                        
+                        <form class="card p-2">
+                            <div class="content" role="main">
+                                <div class="card-container">
+                                  <div #paypal></div>
+                                </div>
+                              </div>
+                        </form>
+                        
+
+
+                    </div>
+                    <!-- FIN RESUMEN DE COMPRA -->
+                </div>
+            </div>
+            <!-- BOTONES -->
+            <div class="col-md-5 col-lg-6 mb-5">
+                <button  (click)="ircatalogo()" type="submit" class="btn btn-outline-secondary">Seguir comprando</button>
+
+                <button (click)="VaciarItems()" type="submit" class="btn btn-warning">Vaciar carrito</button>
+            </div>
+
+
+        </main>
+    </div>
+    <div *ngIf="elementoscarrito.length == 0" class="container  py-5 text-center">
+
+        <h2>EL CARRITO DE COMPRAS ESTÁ VACÍO</h2>
+        <p class="lead">AÑADE PRODUCTOS PARA CONTINUAR...</p>
+        <button  (click)="ircatalogo()" type="submit" class="btn btn-outline-secondary">Seguir comprando</button>
+    </div>
+
+</body>
+<!-- FOOTER-->
+<footer class="footer-distributed">
+
+    <div class="footer-left">
+        <h3>LAU<span>CHUN</span></h3>
+
+        <p class="footer-links">
+            <a href="#">Home</a>
+            |
+            <a href="#">Nosotros</a>
+            |
+            <a href="#">Contactanos</a>
+        </p>
+        <p class="footer-company-name">Copyright © 2023 Diseñado por el equipo de desarrollo de <strong>Lau
+                Chun</strong></p>
+    </div>
+
+    <div class="footer-center">
+        <div>
+            <i class="fa-solid fa-phone"></i>
+            <p><span>LLÁMANOS:</span>
+                +51 999155605</p>
+        </div>
+        <br>
+        <div>
+            <i></i>
+            <p>ESCRÍBENOS:</p>
+        </div>
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:sagar00001.co@gmail.com">lauchun.sm@gmail.com</a></p>
+        </div>
+    </div>
+    <div class="footer-right">
+        <p class="footer-company-about"><span>Sobre nosotros</span><strong>LAUCHUN</strong>
+            es una empresa especializada en la venta de productos de oficina, útiles escolares, suministros de
+            cómputo y papelería en general.</p>
+        <div class="footer-icons">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-youtube"></i></a>
+        </div>
+    </div>
+
+    
+</footer>
+
+<script src="/docs/5.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+<script src="form-validation.js"></script>
+<script src="https://kit.fontawesome.com/4ee8af2e6c.js" crossorigin="anonymous"></script>
+
+</html>

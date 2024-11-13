@@ -1,0 +1,32 @@
+<div style="margin-top: 130px; width: 100%" class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <ngx-charts-bar-vertical
+        [view]="view"
+        [results]="single"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        (select)="onSelect($event)"
+      >
+      </ngx-charts-bar-vertical>
+    </div>
+    <div class="col-lg-6">
+      <ngx-charts-advanced-pie-chart
+        [view]="view"
+        [results]="single"
+        [gradient]="gradient"
+        [gradient]="gradient"
+        (activate)="(showXAxis)"
+        (deactivate)="(showXAxisLabel)"
+        (select)="onSelect($event)"
+      >
+      </ngx-charts-advanced-pie-chart>
+    </div>
+  </div>
+</div>

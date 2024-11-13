@@ -1,0 +1,53 @@
+<div class="container w-75 bg-white mt-5 rounded shadow" >
+    <div class="row align-items-stretch" >
+        
+        <div class="col p-5 rounded-end">
+            <br>
+            <br>
+            
+            <h2 class="fw-bold text-center py-6">Editar  Marca</h2>
+            <br>
+           
+
+            <form action="#">
+               
+                <div class="mb-4">
+                    <label for="" >ID : {{marca.idmarca}}</label>
+                    <br>
+                    <label for="" class="form-label fw-bolder">Marca</label><br>
+                    <input type="text" class="form-control" name="marca" id="jo " [(ngModel)]="marca.nombmarca" >
+                </div>
+                <div class="mb-4">
+                    <label for="" class="form-label fw-bolder">Estado</label><br>
+                    <select name="estado"  [(ngModel)]="marca.estado" class="form-control ps-2" aria-label="Default select example">
+                        <option [ngValue]="undefined" selected>--Seleccione--</option>
+                        <option [ngValue]="true">true</option>
+                        <option [ngValue]="false">false</option>
+                    </select>
+                    <br>
+                    
+                </div>
+             
+                
+                <div class="d-grid  ">
+                    <button (click)="ActualizarMarca(marca)" type="submit" class="btn btn-primary fw-bold text-light">Registrar</button>
+                </div>
+                
+                
+            </form>
+            
+            
+            
+        </div>
+        <div  class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded" >
+
+            <br>
+            <br>
+            
+            <img style="width: 80%;" src="../../../assets/img/imagenescomp/marca.jpg" alt="">
+        </div>
+        
+    </div>
+</div>
+
+

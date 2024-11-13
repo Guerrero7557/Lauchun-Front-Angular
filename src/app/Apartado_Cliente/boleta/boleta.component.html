@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Boleta | Compras - Lauchun </title>
+    
+  </head>
+
+  <body>
+    
+    <div class="control-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-2">
+            <div class="slogan">Generacion - Boleta de compra</div>
+          </div>
+
+          <div  class="col-6 ">
+            <a style="padding: 10px; margin: 10px;" href="javascript:window.print()">Imprimir</a>
+            
+            <a style="padding: 10px; margin: 10px; color: black;" (click)="enviarboleta2(boleta)">Enviar al correo</a>
+          </div><!--.col-->
+          
+        </div><!--.row-->
+      </div><!--.container-->
+    </div><!--.control-bar-->
+
+    <div id="contend">
+
+    <header class="row">
+      <div class="logoholder text-center">
+        <img style="width: 80px; height: 80px;" src="../../../assets/img/LOGO LAUCHUN CIRCULO.png">
+      </div><!--.logoholder-->
+
+      <div class="me">
+        <p >
+          <strong>Lauchun S.A.</strong>
+          <br>
+          San Martin de Porres
+          <br>
+          Peru.
+          <br>
+
+        </p>
+      </div><!--.me-->
+
+      <div class="info">
+        <p >
+          Web: <a href="index.html">www.lauchun.com</a><br>
+          E-mail: <a href="mailto:lauchun.sm@gmail.com">lauchun.sm@gmail.com</a><br>
+          Cel: +51 999155605<br>
+        </p>
+      </div><!-- .info -->
+    </header>
+
+    <div class="row section">
+      <div class="col-2">
+        <h1 >BOLETA DE VENTA</h1>
+        <br>
+      </div><!--.col-->
+
+      <div style="left: 180px;" class="col-2 ">
+        <div class="col-2">
+          <table style='width:150px'>
+            <thead >
+              <tr class="invoice_detail">
+                <th width="40%">RUC: 20457987456</th>
+              </tr>
+            </thead>
+  
+            <tbody >
+              <tr class="invoice_detail">
+                <td id="tablacont2" width="40">Boleta</td>
+              </tr>
+              <tr class="invoice_detail">
+                <td width="40">B00{{venta.idventa}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div><!--.col-->
+
+      <div class="col-2">
+        <p  class="client">
+          <strong>FECHA:</strong> {{venta.fechaventa}}
+          <br>
+          <strong>CLIENTE:</strong> {{venta.idusuario.nombre + " " + venta.idusuario.apellidos }} 
+          <br>
+          <strong>DIRECCION:</strong> {{venta.idusuario.direccion}}          
+          <br>
+          <strong>DOCUMENTO:</strong> {{venta.idusuario.dni}}
+          <br>
+          <strong>MONEDA:</strong> Soles
+        </p>
+      </div><!--.col-->
+    </div><!--.row-->
+
+    <div   class="row section" style="margin-top:-1rem">
+      <div class="col-1">
+        <table style='width:100%'>
+          <thead id="tablacont1" >
+            <tr  class="invoice_detail">
+              <th width="15%">ITEM</th>
+              <th width="40%">PRODUCTOS</th>
+              <th width="15%">PRECIO</th>
+              <th width="15%">CANTIDAD</th>
+              <th width="15%">MONTO</th>
+            </tr>
+          </thead>
+
+          <tbody >
+            <tr *ngFor="let  detalle of detalleventas" class="invoice_detail">
+              <td width="15%">{{detalleventas.indexOf(detalle)+1}}</td>
+              <td width="40">{{detalle.idproducto.nombproducto}}</td>
+              <td width="15%">s/ {{detalle.precioventa}}</td>
+              <td width="15%">{{detalle.cantidad}}</td>
+              <td width="15%">s/ {{detalle.precioventa * detalle.cantidad | number:'1.2-2'}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div><!--.row-->
+
+    <div class="invoicelist-body">
+      <table>
+        <thead >
+          <th width="60%">Sub Total</th>
+          <th width="10%">IGV</th>
+          <th width="10%">Total</th>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td width='5%'><a class="control removeRow" href="#">x</a> <span >s/ {{pago - pago * 0.18 | number:'1.2-2' }}</span></td>
+            <td class="amount">{{pago * 0.18 | number:'1.2-2' }}</td>
+            <td class="sum">{{pago| number:'1.2-2' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div><!--.invoice-body-->
+
+    <div class="invoicelist-footer">
+      <table >
+        <tr class="taxrelated">
+
+        <tr>
+          <td><strong>Total:</strong></td>
+          <td id="total_price">{{pago | number:'1.2-2' }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="note" >
+      <h2>Nota:</h2>
+    </div><!--.note-->
+
+    <footer class="row">
+      <div class="col-1 text-center">
+        <p class="notaxrelated" >Lauchun, donde encuentras de todo.</p>
+      </div>
+    </footer>
+  </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Productos - LAU CHUN</title>
+    <link rel="icon" type="image/x-icon" href="recursos/LOGO LAUCHUN2.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    
+</head>
+
+<body>
+    <!-- INICIO SLIDE -->
+    <header class="bg-dark py-0">
+        <div class="px-4 px-lg-0 my-lg-0">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="../../../assets/img/banners/banner-1.png" class="d-block w-100" alt="...">
+                    </div>
+
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="../../../assets/img/banners/banner-2.png" class="d-block w-100" alt="...">
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="../../../assets/img/banners/banner-3.png" class="d-block w-100" alt="...">
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="../../../assets/img/banners/banner-4.png" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- FIN SLIDE -->
+
+    <!-- INICIO DIV PRODUCTOS VARIOS -->
+    <div class="col-lg-12 my-4">
+        <div class="row">
+            <div class="col-sm-12 col-lg-10">
+                <p id="text-produ">&nbsp; &nbsp; PRODUCTOS</p>
+            </div>
+            <div class="col-4 col-sm-5 col-lg-2">
+                <select name="" id="">
+                    <option selected value="Ordenar_Por">Ordenar por</option>
+                    <option value="Precio_menor_mayor">Precio menor a mayor</option>
+                    <option value="Precio_mayor_menor">Precio mayor a menor</option>
+                    <option value="A_Z">A-Z (alfabeticamente)</option>
+                    <option value="Z_A">Z-A (alfabeticamente)</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <!-- FIN DIV PRODUCTOS VARIOS-->
+
+    <!-- Section-->
+    <section class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <!-- INICIO DIV DE CATEG, MARC, PREC -->
+                <div class="col-lg-3 my-2">
+
+                    <!-- INICIO PARTE DE CATEG, MARC, PREC -->
+                    <nav class="nav">
+                        <ul class="list">
+                            <!-- CATEGORIAS -->
+                            <div class="list_item list_item--click">
+                                <li>
+                                    <!--APARTADO PARA SUBMENU-->
+                                    <div class="list_button list_button--click edit_a">
+                                        <a id="quita_ref" class="nav_link">CATEGORIAS</a>
+                                    </div>
+                                    <ul class="list_show">
+                                        <li class="list_inside">
+                                            <a type="submit" class="nav_link nav_link--inside" (click)="listarProductosxcat(1)">Arte</a>
+                                        </li>
+                                        <li class="list_inside">
+                                            <a type="submit" class="nav_link nav_link--inside" (click)="listarProductosxcat(2)">Accesorios</a>
+                                        </li>
+                                        <li class="list_inside">
+                                            <a type="submit" class="nav_link nav_link--inside"(click)="listarProductosxcat(3)" >Juguetes</a>
+                                        </li>
+                                        <li class="list_inside">
+                                            <a type="submit" class="nav_link nav_link--inside" (click)="listarProductosxcat(4)" >Oficina</a>
+                                        </li>
+                                        <li class="list_inside">
+                                            <a type="submit" class="nav_link nav_link--inside" (click)="listarProductosxcat(5)" >Papeleria</a>
+                                        </li>
+                                        <li class="list_inside">
+                                            <a type="submit" class="nav_link nav_link--inside" (click)="listarProductosxcat(6)" >Utiles</a>
+                                        </li>
+                                        <br>
+                                        <li class="list_inside">
+                                            <a type="submit" class="nav_link nav_link--inside" (click)="listarProductos()" >Todos los productos</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </div>
+                            <!-- FIN CATEGORIAS -->
+                        </ul>
+                    </nav>
+                    <!-- FIN PARTE DE CATEG, MARC, PREC -->
+
+                </div>
+                <!-- FIN DIV DE CATEG, MARC, PREC -->
+
+                <!-- INICIO CARDS-->
+                <div class="col-lg-8 my-2" >
+                    <div class="row">
+
+
+                        <div class="col-lg-4" *ngFor=" let producto of productos">
+                            <div style="margin-left: 70px;" class="mb-5">
+                                <div class="card h-100">
+                                    <!-- OFERTA -->
+                                    <div class="badge bg-dark text-white position-absolute"
+                                        style="top: 0.5rem; right: 0.5rem;  " >Oferta</div>
+
+                                    <!-- IMAGEN -->
+                                    <div class="container" style="width: 260px; height: 290px; display: flex; justify-content: center; ">
+                                    <img class="card-img-top" src="{{producto.imagen}}" alt="..." />
+                                    </div>
+                                    <div class="card-body p-4">
+                                        <div class="text-center">
+                                            <!-- MARCA -->
+                                            <h5 class="fw-bolder">{{producto.idmarca.nombmarca}}</h5>
+
+                                            <!-- DETALLE-->
+                                            <div class="d-flex justify-content-center small text-secondary mb-2">
+                                                {{producto.nombproducto}}
+                                            </div>
+
+                                            <!-- PRECIO -->
+                                            S/ {{producto.precio}}
+                                        </div>
+                                    </div>
+
+                                    <!-- AGREGAR -->
+                                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                        <div class="text-center" (click)="guardaridprod(producto.idproducto)"><a class="btn btn-outline-success mt-auto"
+                                                >Agregar al carrito</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        
+                    </div>
+                </div>
+                <!-- FIN CARDS-->
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER-->
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+            <h3>LAU<span>CHUN</span></h3>
+
+            <p class="footer-links">
+                <a href="#">Home</a>
+                |
+                <a href="#">Nosotros</a>
+                |
+                <a href="#">Contactanos</a>
+            </p>
+            <p class="footer-company-name">Copyright © 2023 Diseñado por el equipo de desarrollo de <strong>Lau
+                    Chun</strong></p>
+        </div>
+
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-phone"></i>
+                <p><span>LLÁMANOS:</span>
+                    +51 999155605</p>
+            </div>
+            <br>
+            <div>
+                <i></i>
+                <p>ESCRÍBENOS:</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:sagar00001.co@gmail.com">lauchun.sm@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about"><span>Sobre nosotros</span><strong>LAUCHUN</strong>
+                es una empresa especializada en la venta de productos de oficina, útiles escolares, suministros de
+                cómputo y papelería en general.</p>
+            <div class="footer-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/4ee8af2e6c.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

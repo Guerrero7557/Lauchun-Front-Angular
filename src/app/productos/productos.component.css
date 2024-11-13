@@ -1,0 +1,11 @@
+
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+.card a:hover {
+    border: 3px solid red;
+    border-radius: 10px;
+}
+

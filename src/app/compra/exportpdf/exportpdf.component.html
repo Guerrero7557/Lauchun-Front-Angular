@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Orden | Compras - Lauchun </title>
+   
+  </head>
+  <body>
+    <div id="contene">
+    <div class="control-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-2-4">
+            <div class="slogan">Generacion - Orden de compra </div>
+          </div>
+
+          <div class="col-4 text-right">
+            <a href="javascript:window.print()">Imprimir</a>
+          </div><!--.col-->
+        </div><!--.row-->
+      </div><!--.container-->
+    </div><!--.control-bar-->
+
+    <header class="row">
+      <div class="logoholder text-center">
+        <img src="../../../assets/img/LOGO LAUCHUN CIRCULO.png" class="" style="width: 70px; height: 70px;">
+      </div><!--.logoholder-->
+
+      <div class="me">
+        <p >
+          <strong>Lauchun S.A.</strong>
+          <br>
+          San Martin de Porres
+          <br>
+          Peru.
+          <br>
+
+        </p>
+      </div><!--.me-->
+
+      <div class="info">
+        <p >
+          Web: <a href="index.html">www.lauchun.com</a><br>
+          E-mail: <a href="mailto:lauchun.sm@gmail.com">lauchun.sm@gmail.com</a><br>
+          Cel: +51 999155605<br>
+        </p>
+      </div><!-- .info -->
+    </header>
+
+    <div class="row section">
+      <div class="col-2">
+        <h1 >Orden de Compra</h1>
+      </div><!--.col-->
+
+      <div class="col-2 text-right details">
+        <p >
+          <label for="">Fecha: {{fecha}}</label>
+          
+          <br>
+          <label for="">N° Orden: {{compra.idcompra}}</label>
+          <br>
+        </p>
+      </div><!--.col-->
+
+      <div class="col-2">
+        <p  class="client">
+          <strong>Facturar a</strong>
+          <br>
+          Diego Moore Navarro
+          <br>
+          Lauchun S.A.
+          <br>
+          Jr José Gálvez 548 - San Martin de Porres
+          <br>
+          999155605
+        </p>
+      </div><!--.col-->
+
+      <div class="col-2">
+        <p  class="client">
+          <strong>Enviar a</strong>
+          <br>
+          {{compra.idproveedor.nombre}}
+          <br>
+          {{compra.idproveedor.razonsocial}}
+          <br>
+          {{compra.idproveedor.direccion}}
+          <br>
+          {{compra.idproveedor.telefono}}
+        </p>
+      </div><!--.col-->
+    </div><!--.row-->
+
+    <div class="row section" style="margin-top:-1rem">
+      <div class="col-1">
+        <table style='width:100%'>
+          <thead >
+            <tr class="invoice_detail">
+              <th width="15%">ID</th>
+              <th width="40%">PRODUCTOS</th>
+              <th width="15%">CANTIDAD</th>
+              <th width="15%">PRECIO U.</th>
+              <th width="15%">MONTO</th>
+            </tr>
+          </thead>
+
+          <tbody >
+            <tr *ngFor="let  detalle of detalles" class="invoice_detail">
+              <td width="15%">{{detalle.iddetallecom}}</td>
+              <td width="40">{{detalle.idproducto.nombproducto}}</td>
+              <td width="15%">{{detalle.cantidad}}</td>
+              <td width="15%">S/ {{detalle.costo}}</td> 
+              <td width="15%">S/ {{detalle.costo*detalle.cantidad | number:'1.2-2'}}</td>              
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div><!--.row-->
+
+    <div class="invoicelist-body">
+      <table>
+        <thead >
+          <th width="60%">Total pedido</th>
+          <th width="10%">Descuento</th>
+          <th width="10%">Total</th>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td width='5%'><span >{{total | number:'1.2-2'}}</span></td>
+            <td class="amount"><input type="text" value="0" /></td>
+            <td class="sum">{{total | number:'1.2-2'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div><!--.invoice-body-->
+
+    <div class="invoicelist-footer">
+      <table >
+        <tr class="taxrelated">
+
+        <tr>
+          <td><strong>Total:</strong></td>
+          <td id="total_price">{{total | number:'1.2-2'}}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="note" >
+      <h2>Nota:</h2>
+    </div><!--.note-->
+
+    <footer class="row">
+      <div class="col-1 text-center">
+        <p class="notaxrelated" >Lauchun, donde encuentras de todo.</p>
+      </div>
+    </footer>
+  </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

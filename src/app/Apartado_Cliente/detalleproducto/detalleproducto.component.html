@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Vista - Detalle de Producto</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+  </head>
+  <body>
+        <!-- Contenido del producto-->
+        <br>
+                <br>
+                <br>
+                
+        <div class="container">
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+
+                <div class="col-lg-7">
+
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active" >
+                            <img src="{{producto.imagen}}" alt="" width="60%" height="50%">
+                          </div>
+                          
+                        </div>
+                        
+                      </div>
+
+                </div>
+
+                <div class="col-lg-5">
+                    <span class="label">{{producto.idmarca.nombmarca}}</span>
+                    
+                    <h1 class="font-weight-light">
+                        <span>{{producto.nombproducto}}</span>
+                    </h1>
+                    
+                    <div>
+                        <div class="Detalles">
+                            <span class="titulo-producto">
+                                <ul>                                   
+                                    <li>{{producto.descripcion}}</li>
+                                    <li>Stock: {{producto.stock}}</li>
+                                    <li>Categoria: {{producto.idcategoria.nombrecategoria}}.
+                                    <p><span style="font-family: tahoma, arial, helvetica, sans-serif; font-size: small;">*El producto 
+                                        corresponde a un código surtido, se vende cada producto por unidad al precio publicado y sólo se entregará al azar según stock.</span></p>
+                                    </li>
+                                </ul>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div id="producto-precio" data-price-amount="3.7" data-price-type="finalPrice" class="price-wrapper ">
+                        <span class="h3" style="color: #ff5a5a;">S/ {{producto.precio}}</span>
+                    </div>
+                    <br>
+                    
+                    <form action="contador"> 
+                        <input [(ngModel)]="cantidad"  [defaultValue]="1" type="number" name="q" min="1" max="100" step="1" value="1" style="text-align: center;border: 1px solid; border-radius: 5px;"> 
+                        <a class="btn btn-success" (click)="guardarproducto(carrito)">Agregar al carrito</a>
+                    </form>  
+                    
+                    
+                </div>
+            </div>
+
+            <!-- Cinta web-->
+            <div class="my-5">
+                <div class="card-body">
+                    <img src="" style="width: 100%;">
+                </div>
+            </div>
+
+            <!-- Tarjetas de ofertas-->
+            <div class="row gx-4 gx-lg-5">
+                
+                <h4>Otras ofertas increibles</h4>
+                <br>
+                <br>
+
+                <div *ngFor="let producto of productosuge " class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <img src="{{producto.imagen}}" style="width: 100%;">
+                            <hr>
+                            <h4 class="card-title">{{producto.nombproducto}}</h4>                       
+                        </div>
+                        <div (click)="verdetalleProducto(producto.idproducto)"  class="card-footer"><a class="btn btn-primary btn-sm" >Mostrar mas</a></div>
+                    </div>
+                </div>
+
+                
+
+            </div>
+        </div>   
+    <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

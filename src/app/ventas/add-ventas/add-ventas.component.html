@@ -1,0 +1,49 @@
+<h2 class="fw-bold text-center py-6">New Venta</h2>
+<form action="#">
+  <div class="container">
+    <div class="form-row">      
+      <div class="form-group col-md-2">
+        <label for="">Id Usuario</label> 
+
+        
+
+      <select name="idusuario"  [(ngModel)]="venta.idusuario" class="form-control ps-2" aria-label="Default select example">
+        <option  [ngValue]="undefined" selected>--Seleccione--</option>
+        <option *ngFor="let usuario of usuarios" [ngValue]="usuario">{{usuario.usuario}}</option>        
+    </select>     
+
+
+      </div>
+      <div class="form-group col-md-2">
+        <label for="">Id Tipo de Pago</label>
+        <select name="idtipopago"  [(ngModel)]="venta.idtipopago" class="form-control ps-2" aria-label="Default select example">
+          <option  [ngValue]="undefined" selected>--Seleccione--</option>
+          <option *ngFor="let tipopago of tipopagos" [ngValue]="tipopago">{{tipopago.nombtipopago}}</option>
+          
+      </select>
+      </div>
+      <div class="form-group col-md-8">
+        <label for="inputAddress">Fecha Venta</label>
+        <input type="date" class="form-control" name="fechaventa" id="fechaventa" placeholder="Ingrese la fecha de la venta" [(ngModel)]="venta.fechaventa"> 
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-8">
+        <label for="inputAddress">Monto total venta</label>
+        <input type="text" class="form-control" name="montototalv" id="montototalv" placeholder="Ingrese el monto total de la venta" [(ngModel)]="venta.montototalv">
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="inputState">Estado</label>
+        <select name="estado"  [(ngModel)]="venta.estado" class="form-control ps-2" aria-label="Default select example">
+            <option [ngValue]="undefined" selected>--Seleccione--</option>
+            <option [ngValue]="true">true</option>
+            <option [ngValue]="false">false</option>
+      </select>
+      </div>
+    </div>    
+    <button type="submit" (click)="AgregarVenta(venta)" class="btn btn-primary">Registrar</button>
+  </div>
+  </form>

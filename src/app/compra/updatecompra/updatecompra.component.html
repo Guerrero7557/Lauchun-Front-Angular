@@ -1,0 +1,94 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>Checkout example · Bootstrap v5.2</title>
+
+   
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+
+    <!-- Custom styles for this template -->
+    <link href="" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    
+<div class="container" id="cont">
+  <main>
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="../../../assets/img/LAU2.png" alt="" width="222" height="151">
+      <h2>LAUCHUN - ORDEN DE COMPRA</h2>
+      <p class="lead">Compramos contigo...</p>
+    </div>
+
+    <div class="row g-5 d-flex align-items-center justify-content-center">
+  
+      <!-- DATOS ORDEN DE COMPRA -->
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Orden de Compra</h4>
+        <form class="needs-validation" novalidate>
+        <div class="row g-3">
+            
+            <div class="col-sm-6">
+              <label for="idproveedor" class="form-label">Proveedor</label>
+                <select name="idproveedor" [(ngModel)]="compra.idproveedor" class="form-select" id="idproveedor" required>
+                  <option  [ngValue]="compra.idproveedor" selected>{{compra.idproveedor.razonsocial}}</option>  
+                  <option *ngFor="let proveedor of proveedores" [ngValue]="proveedor">{{proveedor.razonsocial}}</option>              
+                </select>
+
+                <div class="invalid-feedback">
+                  Seleccionar un proveedor porfabor!
+                </div>
+            </div>
+
+        <!-- FECHA DE COMPRA -->
+              <div class="col-sm-6">
+                <label for="username" class="form-label">Fecha de Orden</label>
+                <div  class="input-group has-validation">
+                    <input name="fechacompra" type="date" class="form-control"[(ngModel)]="compra.fechacompra">
+                </div>
+              </div>
+        </div>
+        <br>
+
+       
+
+        <!-- ESTADO -->
+            <div>
+              <label for="estado" class="form-label">Estado</label>
+            </div>
+
+            <div class="form-check form-switch">
+              <input name="estado" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked [(ngModel)]="compra.estado">
+              <label class="form-check-label" for="flexSwitchCheckChecked">Activo</label>
+            </div>
+            <br>
+
+            <div class="d-flex align-items-center justify-content-center">
+              <button (click)="actualizarCompra(compra)" class="w-50 btn btn-success btn-lg" type="submit">Actualizar registro</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+
+        <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="form-validation.js"></script>
+  </body>
+</html>

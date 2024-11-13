@@ -1,0 +1,46 @@
+<div class="card border-primary mb-3 " style="margin-top: 90px;">
+    
+    <div class="card-body text-primary text-center">
+      <h5 class="card-title">Listado de Proveedores</h5>
+      <div class="card-header"> Proveedores registrados</div>
+      <br>
+      <button  (click)="add()"  class="btn btn-success">Crear Proveedor</button>
+      <button style="margin: 10px;" (click)="exportToExcel()"  class="btn btn-warning">Exportar a Excel</button>          
+      <br>
+      <br>
+      <br>
+      <table class="table table-bordered table-striped"  id="data-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Ruc</th>
+                <th>RazonSocial</th>
+                <th>Direccion</th>
+                <th>Email</th>
+                <th>Telefono</th>
+                <th>Estado</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let  proveedor of proveedores">
+                <td>{{proveedor.idproveedor}}</td>
+                <td>{{proveedor.nombre}}</td>
+                <td> {{proveedor.ruc}}</td>
+                <td>{{proveedor.razonsocial}}</td>
+                <td>{{proveedor.direccion}}</td>
+                <td>{{proveedor.email}}</td>
+                <td>{{proveedor.telefono}}</td>
+                <td>{{proveedor.estado}}</td>                
+                
+                <td><button  (click)="Editar(proveedor)"  class="btn btn-success">Editar</button>
+                    <button  (click)="eliminarProveedor(proveedor)" style="margin-left: 10px;" class="btn btn-danger ms-3">Eliminar</button></td>
+            </tr>
+          </tbody>
+      </table>
+      
+      
+    </div>
+  </div>
+

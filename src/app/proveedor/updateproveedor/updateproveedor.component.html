@@ -1,0 +1,97 @@
+<div class="container w-75 bg-white mt-5 rounded shadow" style="margin-top: 90px;">
+    <div class="row align-items-stretch" >
+        
+        <div class="col p-5 rounded-end">
+            
+            <br>
+                <br>
+            <h2 class="fw-bold text-center py-6">Editar Proveedor</h2>
+            <br>
+           
+
+            <form action="#">
+                
+                <div class="mb-4">
+                    <label for="" >ID : {{proveedor.idproveedor}}</label>
+                    <br>
+                    <label for="" class="form-label fw-bolder">Proveedor</label><br>
+                    <input type="text" class="form-control" name="nombre" id="idcategoria" [(ngModel)]="proveedor.nombre">
+                </div>
+
+
+                <div class="mb-4">
+                   
+                    
+                    <label for="" class="form-label fw-bolder">Ruc</label><br>
+                    <input type="text" class="form-control" name="ruc" id="ruc " [(ngModel)]="proveedor.ruc" >
+                </div>
+
+                <div class="mb-4">
+                    
+                    
+                    <label for="" class="form-label fw-bolder">Razon Social</label><br>
+                    <input type="text" class="form-control" name="razonsocial" id="raz_soc " [(ngModel)]="proveedor.razonsocial" >
+                </div>
+
+                <div class="mb-4">
+                    
+                    
+                    <label for="" class="form-label fw-bolder">Direccion</label><br>
+                    <input type="text" class="form-control" name="direccion" id="dir " [(ngModel)]="proveedor.direccion" >
+                </div>
+
+                <div class="mb-4">
+                    
+                    
+                    <label for="" class="form-label fw-bolder">Email</label><br>
+                    <input type="text" class="form-control" name="email" id="ema " [(ngModel)]="proveedor.email" >
+                </div>
+
+                <div class="mb-4">
+                    
+                    
+                    <label for="" class="form-label fw-bolder">Telefono</label><br>
+                    <input type="text" class="form-control" name="telefono" id="te " [(ngModel)]="proveedor.telefono" >
+                </div>
+
+                <div class="mb-4">
+                    <label for="" class="form-label fw-bolder">Estado</label><br>
+                    <select name="estado"  [(ngModel)]="proveedor.estado" class="form-control ps-2" aria-label="Default select example">
+                        <option [ngValue]="undefined" selected>--Seleccione--</option>
+                        <option [ngValue]="true">true</option>
+                        <option [ngValue]="false">false</option>
+                    </select>
+                </div>
+            
+                <div class="d-grid  ">
+                    <button (click)="ActualizarProveedor(proveedor)" type="submit" class="btn btn-primary fw-bold text-light">Actualizar</button>
+                </div>
+                
+                
+            </form>
+            
+            
+            
+        </div>
+        <div  class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded" >
+            
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <img style="width: 80%;" src="../../../assets/img/imagenescomp/proveedor.jpg" alt="">
+    
+            
+
+        </div>
+        
+    </div>
+</div>
